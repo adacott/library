@@ -48,6 +48,9 @@ myLibrary.push(book2);
 const add_book = document.querySelector(".add-book button");
 const cards = document.querySelector(".cards");
 
+
+// Create a dummy function to add the card, and all elements to the pages in preparation for doing so
+// with a form and class
 add_book.addEventListener("click", function (e) {
     // console.log(e);
     const card = document.createElement("div");
@@ -55,23 +58,32 @@ add_book.addEventListener("click", function (e) {
     const author = document.createElement("div");
     const pages = document.createElement("div");
     const released = document.createElement("div");
+    const read = document.createElement("button");
+    const remove = document.createElement("button");
 
+    // Assign classes to all elements
     card.className = "card";
-
     title.className = "title";
-    title.innerHTML = "The Stone Door"
-
     author.className = "author";
-    author.innerHTML = "Patrick Rothfuss";
-
     pages.className = "pages";
+    released.className = "released";
+    read.className = "read";
+
+    // Assign innerHTML content
+    title.innerHTML = "The Stone Door"
+    author.innerHTML = "Patrick Rothfuss";
     pages.innerHTML = "1120";
     pages.innerHTML = `${pages.innerHTML} pages`;
-
-    released.className = "released";
     released.innerHTML = "01 March 2016";
+    read.innerHTML = "Not Read";
+    remove.innerHTML = "Remove book";
 
+    card.appendChild(title);
+    card.appendChild(author);
     card.appendChild(pages);
+    card.appendChild(released);
+    card.appendChild(read);
+    card.appendChild(remove);
 
     cards.appendChild(card);
 })
