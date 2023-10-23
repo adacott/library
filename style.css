@@ -121,6 +121,49 @@ main .cards .card>button:active {
     box-shadow: 0 0 1px black;
 }
 
+/* Dialog form CSS */
+
+dialog {
+    z-index: 1;
+    background-color: var(--accent-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 15px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    top: 25vh;
+    /* Calculate the size of the box and center accordingly */
+    left: calc(calc(100vw - clamp(320px, 20vw, 610px))/2);
+    padding: 10px;
+    width: clamp(320px, 20vw, 610px);
+}
+
+dialog::backdrop {
+    background-color: var(--tertiary-color);
+}
+
+dialog form>* {
+    margin: 15px 5px;
+}
+
+dialog button {
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+
+dialog button:hover {
+    background-color: var(--tertiary-color);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+dialog button:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 1px black;
+}
+
 footer {
     /* border: 3px solid #f88686; */
     display: flex;
