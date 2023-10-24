@@ -89,22 +89,38 @@ add_book.addEventListener("click", function (e) {
     // card.appendChild(remove);
 
 
-    // Code needed to open and close the modal
+
+
+    // Code needed to open, close, and use modal input values
     const dialog = document.querySelector("dialog");
     const closeButton = document.querySelector("dialog button");
+    const title_in = document.querySelector("#title");
+    const author_in = document.querySelector("#author");
+    const pages_in = document.querySelector("#pages");
+    const date_in = document.querySelector("#date");
+    const read_in = document.querySelector("#read");
 
     // cards.appendChild(card);
     dialog.style.display = "contents";
     dialog.showModal();
 
     // "Close" button closes the dialog
-    closeButton.addEventListener("click", () => {
+    closeButton.addEventListener("click", (event) => {
+        event.preventDefault();
         dialog.close();
         dialog.style.display = "none";
+        /* How to return the value of the input */
+        console.log(title_in.value);
+        console.log(author_in.value);
+        console.log(pages_in.value);
+        console.log(date_in.value);
+        console.log(read_in.value);
+        document.querySelector("form").reset();
     });
-
-
 })
 
 
+/* These are some useful links for where I left off.
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog */
 

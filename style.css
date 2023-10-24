@@ -133,7 +133,7 @@ dialog {
     left: calc(calc(100vw - clamp(320px, 20vw, 610px))/2);
     padding: 10px;
     width: clamp(320px, 20vw, 610px);
-    /* display: none; */
+    display: none;
 
     background-color: var(--accent-color);
     border: 3px solid var(--primary-color);
@@ -179,6 +179,10 @@ dialog label {
     display: block;
 }
 
+dialog label {
+    color: var(--primary-color);
+}
+
 dialog input {
     width: 100%;
     background-color: var(--primary-color);
@@ -193,7 +197,19 @@ dialog input:focus {
     outline: none;
 }
 
+dialog select {
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 2px 3px;
+    margin-top: 4px;
+}
 
+dialog select:focus {
+    color: yellow;
+}
+
+/* Footer */
 
 footer {
     /* border: 3px solid #f88686; */

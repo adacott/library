@@ -27,17 +27,24 @@
 
             <div>
                 <label for="author">Author: </label>
-                <input type="text" name="author" id="title" required>
+                <input type="text" name="author" id="author" required>
             </div>
 
             <div>
-                <label for="">Pages: </label>
-                <input type="text" name="title" id="title" required>
+                <label for="pages">Pages: </label>
+                <input type="number" name="pages" id="pages" required>
             </div>
 
             <div>
-                <label for="">Released: </label>
-                <input type="text" name="title" id="title" required>
+                <label for="date">Released: </label>
+                <input type="date" name="date" id="date" required>
+            </div>
+            <div>
+                <label for="read">Have you read it? </label>
+                <select name="read" id="read">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
             </div>
             <button>Submit</button>
         </form>
