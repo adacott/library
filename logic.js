@@ -27,11 +27,10 @@ function addBookToLibrary(event) {
     // Create a book using form information
     book1 = new Book(title_in.value, author_in.value, pages_in.value, date_in.value, read_in.value);
     myLibrary.push(book1);
-    console.log(myLibrary[0]);
-
-    document.querySelector("form").reset();
 
     createCard();
+
+    document.querySelector("form").reset();
 }
 
 function createCard() {
@@ -43,6 +42,7 @@ function createCard() {
     const date = document.createElement("div");
     const read = document.createElement("button");
     const remove = document.createElement("button");
+    const read_in = document.querySelector("#read");
 
     card.className = "card";
     title.className = "title";
@@ -56,11 +56,14 @@ function createCard() {
     pages.innerHTML = `${myLibrary[0].pages}`;
     date.innerHTML = `${myLibrary[0].date}`;
     remove.innerHTML = "Remove Book";
-
-    // TODO: Create a small section that will add or remove a class to style
-    // the card and elements based on the value of read or not.
-    // If the book has been read, add the class "isRead" to the card element
-    read.innerHTML = "Not Read";  /* `${myLibrary[0].read}`; */
+    // Get the current read status and update it in the card
+    if (read_in.options[read_in.selectedIndex].value == "yes") {
+        read.innerHTML = "Read";
+        card.classList.add("isRead")
+    }
+    else {
+        read.innerHTML = "Not Read";
+    }
 
 
     card.appendChild(title);
@@ -69,8 +72,8 @@ function createCard() {
     card.appendChild(date);
     card.appendChild(read);
     card.appendChild(remove);
-
     cards.appendChild(card);
+
 }
 
 function toggleRead() {
