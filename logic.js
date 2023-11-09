@@ -57,10 +57,10 @@ function createCard() {
     read.className = "read";
     remove.className = "remove";
 
-    title.innerHTML = `${myLibrary[0].title}`;
-    author.innerHTML = `${myLibrary[0].author}`;
-    pages.innerHTML = `${myLibrary[0].pages}`;
-    date.innerHTML = `${myLibrary[0].date}`;
+    title.innerHTML = `${myLibrary[idx].title}`;
+    author.innerHTML = `${myLibrary[idx].author}`;
+    pages.innerHTML = `${myLibrary[idx].pages}`;
+    date.innerHTML = `${myLibrary[idx].date_released}`;
     remove.innerHTML = "Remove Book";
     // Get the current read status and update it in the card
     if (read_in.options[read_in.selectedIndex].value == "yes") {
