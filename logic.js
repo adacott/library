@@ -34,8 +34,8 @@ function addBookToLibrary(event) {
     const readButton = document.querySelectorAll(".read");
     readButton.forEach(bt => bt.addEventListener("click", toggleRead));
 
-    const removeBook = document.querySelectorAll(".remove")
-    removeBook.forEach(bk => bk.addEventListener("click", removeBook))
+    const removeButton = document.querySelectorAll(".remove");
+    removeButton.forEach(bk => bk.addEventListener("click", removeBook));
 }
 
 function createCard() {
@@ -72,8 +72,8 @@ function createCard() {
     }
 
     // Add data attribute for index tracking:
-    card.dataset.indexNumber = idx;
-    idx = idx + 1;
+    card.dataset.indexNumber = `${idx}`;
+    idx += 1;
 
     card.appendChild(title);
     card.appendChild(author);
@@ -84,7 +84,7 @@ function createCard() {
     cards.appendChild(card);
 }
 
-function toggleRead(e) {
+function toggleRead() {
     if (this.parentElement.classList.contains("isRead")) {
         this.parentElement.classList.remove("isRead");
         this.innerHTML = "Not Read";
@@ -96,17 +96,34 @@ function toggleRead(e) {
 }
 
 function removeBook() {
+    console.log(this.parentElement.dataset.indexNumber);
+    start = this.parentElement.dataset.indexNumber;
 
+    console.log(cards.children);
+    for (i = start; i < cards.children.length; i++) {
+        if (cards.children[i].dataset.indexNumber > start) {
+            current_index = cards.children[i].dataset.indexNumber;
+            current_index -= 1;
+            cards.children[i].dataset.indexNumber = current_index;
+        }
+    }
+
+    // Remove the child, set it to null to clear the memory
+    myLibrary.splice(start, 1);
+    cards.removeChild(this.parentElement);
+    this.parentElement = null;
+    console.log(cards.children);
+    idx -= 1;
 }
 
-const openDialog = document.querySelector(".add-book button");
+const open_Dialog = document.querySelector(".add-book button");
 const closeButton = document.querySelector("dialog button");
 const cards = document.querySelector(".cards");
 const dialog = document.querySelector("dialog");
 const myLibrary = [];
 let idx = 0;
 
-openDialog.addEventListener("click", openDialog);
+open_Dialog.addEventListener("click", openDialog);
 closeButton.addEventListener("click", addBookToLibrary);
 
 
