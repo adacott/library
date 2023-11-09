@@ -6,7 +6,6 @@
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
     color: white;
-    box-sizing: border-box;
 }
 
 :root {
@@ -68,9 +67,8 @@ main .add-book {
 }
 
 main .add-book button:hover {
-    background-color: var(--tertiary-color);
     border: 1px solid var(--accent-color);
-    color: var(--accent-color);
+    font-weight: 1000;
 }
 
 main .add-book button:active {
@@ -89,7 +87,8 @@ main .cards {
 main .cards .card {
     background-color: var(--primary-color);
     box-shadow: 0 0 15px 2px rgb(69, 69, 69);
-    border-radius: 5px;
+    border-radius: 6px;
+    border: 1px solid var(--accent-color);
     margin: 30px 10px;
     width: clamp(200px, 5vw, 500px);
     padding: 10px;
@@ -131,13 +130,14 @@ main .cards .card>button:active {
 
 main .cards .card.isRead {
     background-color: var(--accent-color);
+    border: 1px solid var(--primary-color);
 }
 
 main .cards .card.isRead>button {
     background-color: var(--primary-color);
     color: var(--accent-color);
-    font-weight: 1000;
-    /* border: 2px solid var(--primary-color); */
+    font-weight: 600;
+    border: 1px solid var(--primary-color);
 }
 
 main .cards .card.isRead>button:hover {
@@ -152,7 +152,7 @@ main .cards .card.isRead>div {
 }
 
 
-/* Dialog form Appearance */
+/* Dialog modal Appearance */
 
 dialog {
     z-index: 1;
@@ -203,7 +203,7 @@ dialog button:active {
     box-shadow: 0 0 1px black;
 }
 
-/* Dialog input appearance */
+/* dialog FORM input appearance */
 
 dialog input,
 dialog label {
@@ -216,7 +216,7 @@ dialog label {
 
 dialog input {
     width: 100%;
-    background-color: var(--primary-color);
+    background-color: var(--tertiary-color);
     border-radius: 5px;
     padding: 3px 5px;
     color: var(--accent-color);

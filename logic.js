@@ -1,7 +1,4 @@
-// const book1 = new Book("The Wise Man's Fear", "Patrick Rothfuss", 1120, true);
-
-const myLibrary = [];
-
+// Book constructor to create book objects
 function Book(title, author, pages, date_released, read) {
     this.title = title;
     this.author = author;
@@ -9,16 +6,6 @@ function Book(title, author, pages, date_released, read) {
     this.date_released = date_released;
     this.read = read;
 }
-
-
-const open_dialog = document.querySelector(".add-book button");
-const cards = document.querySelector(".cards");
-const closeButton = document.querySelector("dialog button");
-const dialog = document.querySelector("dialog");
-
-
-open_dialog.addEventListener("click", openDialog);
-closeButton.addEventListener("click", addBookToLibrary);
 
 function openDialog() {
     dialog.style.display = "contents";
@@ -72,6 +59,7 @@ function createCard() {
 
     // TODO: Create a small section that will add or remove a class to style
     // the card and elements based on the value of read or not.
+    // If the book has been read, add the class "isRead" to the card element
     read.innerHTML = "Not Read";  /* `${myLibrary[0].read}`; */
 
 
@@ -85,9 +73,36 @@ function createCard() {
     cards.appendChild(card);
 }
 
+function toggleRead() {
+    console.log(this.parentElement);
+
+    if (this.parentElement.classList.contains("isRead")) {
+        this.parentElement.classList.remove("isRead");
+        this.innerHTML = "Not Read";
+    }
+    else {
+        this.parentElement.classList.add("isRead");
+        this.innerHTML = "Read";
+    }
+}
+
 function removeBook() {
 
 }
+
+const open_dialog = document.querySelector(".add-book button");
+const closeButton = document.querySelector("dialog button");
+const readButton = document.querySelector(".card .read");
+const cards = document.querySelector(".cards");
+const dialog = document.querySelector("dialog");
+const myLibrary = [];
+
+open_dialog.addEventListener("click", openDialog);
+closeButton.addEventListener("click", addBookToLibrary);
+readButton.addEventListener("click", toggleRead);
+
+// add eventlistener for removebook button
+
 
 
 
