@@ -108,7 +108,7 @@ main .cards .card>div {
     color: var(--accent-color);
     font-weight: 1000;
     max-width: 85%;
-    overflow-wrap: auto;
+    overflow-wrap: break-word;
 }
 
 main .cards .card>button {
