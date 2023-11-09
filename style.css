@@ -87,7 +87,7 @@ main .cards {
 main .cards .card {
     background-color: var(--primary-color);
     box-shadow: 0 0 15px 2px rgb(69, 69, 69);
-    border-radius: 6px;
+    border-radius: 7px;
     border: 1px solid var(--accent-color);
     margin: 30px 5px;
     width: clamp(200px, 5vw, 500px);
