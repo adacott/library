@@ -29,8 +29,10 @@ function addBookToLibrary(event) {
     myLibrary.push(book1);
 
     createCard();
-
     document.querySelector("form").reset();
+
+    const readButton = document.querySelectorAll(".read");
+    readButton.forEach(bt => bt.addEventListener("click", toggleRead));
 }
 
 function createCard() {
@@ -65,7 +67,6 @@ function createCard() {
         read.innerHTML = "Not Read";
     }
 
-
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
@@ -73,12 +74,9 @@ function createCard() {
     card.appendChild(read);
     card.appendChild(remove);
     cards.appendChild(card);
-
 }
 
-function toggleRead() {
-    console.log(this.parentElement);
-
+function toggleRead(e) {
     if (this.parentElement.classList.contains("isRead")) {
         this.parentElement.classList.remove("isRead");
         this.innerHTML = "Not Read";
@@ -95,16 +93,14 @@ function removeBook() {
 
 const open_dialog = document.querySelector(".add-book button");
 const closeButton = document.querySelector("dialog button");
-const readButton = document.querySelector(".card .read");
 const cards = document.querySelector(".cards");
 const dialog = document.querySelector("dialog");
 const myLibrary = [];
+const idx = 0;
 
 open_dialog.addEventListener("click", openDialog);
 closeButton.addEventListener("click", addBookToLibrary);
-readButton.addEventListener("click", toggleRead);
 
-// add eventlistener for removebook button
 
 
 
