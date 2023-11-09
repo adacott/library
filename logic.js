@@ -33,6 +33,9 @@ function addBookToLibrary(event) {
 
     const readButton = document.querySelectorAll(".read");
     readButton.forEach(bt => bt.addEventListener("click", toggleRead));
+
+    const removeBook = document.querySelectorAll(".remove")
+    removeBook.forEach(bk => bk.addEventListener("click", removeBook))
 }
 
 function createCard() {
@@ -52,6 +55,7 @@ function createCard() {
     pages.className = "pages";
     date.className = "released";
     read.className = "read";
+    remove.className = "remove";
 
     title.innerHTML = `${myLibrary[0].title}`;
     author.innerHTML = `${myLibrary[0].author}`;
@@ -66,6 +70,10 @@ function createCard() {
     else {
         read.innerHTML = "Not Read";
     }
+
+    // Add data attribute for index tracking:
+    card.dataset.indexNumber = idx;
+    idx = idx + 1;
 
     card.appendChild(title);
     card.appendChild(author);
@@ -91,14 +99,14 @@ function removeBook() {
 
 }
 
-const open_dialog = document.querySelector(".add-book button");
+const openDialog = document.querySelector(".add-book button");
 const closeButton = document.querySelector("dialog button");
 const cards = document.querySelector(".cards");
 const dialog = document.querySelector("dialog");
 const myLibrary = [];
-const idx = 0;
+let idx = 0;
 
-open_dialog.addEventListener("click", openDialog);
+openDialog.addEventListener("click", openDialog);
 closeButton.addEventListener("click", addBookToLibrary);
 
 
