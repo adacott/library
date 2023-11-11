@@ -1,11 +1,21 @@
 // Book constructor to create book objects
-function Book(title, author, pages, date_released, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.date_released = date_released;
-    this.read = read;
+class Book {
+    constructor(title, author, pages, date_release, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.date_released = date_release;
+        this.read = read;
+    }
 }
+
+// function Book(title, author, pages, date_released, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.date_released = date_released;
+//     this.read = read;
+// }
 
 function openDialog() {
     dialog.style.display = "contents";
@@ -25,7 +35,7 @@ function addBookToLibrary(event) {
     const read_in = document.querySelector("#read");
 
     // Create a book using form information
-    book1 = new Book(title_in.value, author_in.value, pages_in.value, date_in.value, read_in.value);
+    let book1 = new Book(title_in.value, author_in.value, pages_in.value, date_in.value, read_in.value);
     myLibrary.push(book1);
 
     createCard();
