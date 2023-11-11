@@ -9,14 +9,6 @@ class Book {
     }
 }
 
-// function Book(title, author, pages, date_released, read) {
-//     this.title = title;
-//     this.author = author;
-//     this.pages = pages;
-//     this.date_released = date_released;
-//     this.read = read;
-// }
-
 function openDialog() {
     dialog.style.display = "contents";
     dialog.showModal();
